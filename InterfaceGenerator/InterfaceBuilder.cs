@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Types;
+using InterfaceGenerator.Types;
 
 namespace InterfaceGenerator
 {
@@ -53,7 +53,7 @@ namespace InterfaceGenerator
             {
                 if (IsLegalFunctionName(m.GetFunctionName()))
                 {
-                    // Todo [cb] This is very unhandy. Maybe set a enum for the interface?
+                    // Todo [cb] This is very unhandy. Maybe set an enum for the interface?
                     if (m.GetReturnType() != "bool")
                     {
                         result.AppendLine("virtual " + m.GetReturnType() + " " + m.GetFunctionName() + "() = 0;");

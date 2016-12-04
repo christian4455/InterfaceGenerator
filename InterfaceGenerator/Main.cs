@@ -13,6 +13,11 @@ namespace InterfaceGenerator
         const string menuHeader = "-&InterfaceGenerator";
         const string menuGenerateInterface = "&Generate interface";
 
+        InterfaceBuilder m_InterfaceBuilder = new InterfaceBuilder();
+        RepositoryHandler m_RepositoryHandler = new RepositoryHandler();
+        FileWriter m_FileWriter = new FileWriter();
+        InterfaceGenerator m_InterfaceGenerator = new InterfaceGenerator();
+
         ///
         /// Called Before EA starts to check Add-In Exists
         /// Nothing is done here.
@@ -22,7 +27,10 @@ namespace InterfaceGenerator
         /// a string
         public String EA_Connect(EA.Repository Repository)
         {
-            //No special processing required.
+            m_InterfaceGenerator.SetInterfaceBuilder(m_InterfaceBuilder);
+            m_InterfaceGenerator.SetRepositoryHandler(m_RepositoryHandler);
+            m_InterfaceGenerator.SetFileWriter(m_FileWriter);
+
             return "a string";
         }
 
@@ -115,7 +123,8 @@ namespace InterfaceGenerator
             {
                 // user has clicked the menuHello menu option
                 case menuGenerateInterface:
-                    MessageBox.Show("Hello World");
+                    IPlugin plugin = m_InterfaceGenerator;
+                    plugin.ProcessRepository(Repository);
                     break;
             }
         }

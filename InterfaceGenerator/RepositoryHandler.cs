@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Types;
-using Utils;
+using InterfaceGenerator.Types;
+using InterfaceGenerator.Utils;
 
-using Utils.Logger;
+using InterfaceGenerator.Utils.Logger;
 
 namespace InterfaceGenerator
 {
@@ -26,10 +26,26 @@ namespace InterfaceGenerator
         {
             m_Data = new Types.InterfaceData();
 
+            m_InterfaceOfInterest = interfaceElement;
+
+            // Section Namespace
             //EA.Package package = activityDiagram.GetTreeSelectedPackage();
             //m_DiagramOfInterest = activityDiagram;
 
-            ////MessageBox.Show(package.Name);
+            //// MessageBox.Show(package.Name);
+
+            FetchNamespace(interfaceElement);
+
+            // Section Methods
+            // Methoden Name
+
+            // Section Argument Liste machen [0] ist immer der ReturnType
+            // Section Namespace
+            // Section Element
+            // Section isConst?
+            // Section isReference?
+            // Section isPointer?
+            // Section Name..Wenn ReturnType dann leer
 
             //foreach (EA.Element e in package.Elements)
             //{
@@ -84,6 +100,21 @@ namespace InterfaceGenerator
             //        break;
             //    }
             //}
+        }
+
+        private void FetchNamespace(EA.Repository interfaceElement)
+        {
+            EA.Package package = interfaceElement.GetTreeSelectedPackage();
+
+            MessageBox.Show("package name=" + package.Name);
+
+            while (!package.IsNamespace)
+            {
+                m_Data.AddNamespaceElement(package.Name);
+                package = interfaceElement.GetPackageByID(package.ParentID);
+            }
+
+            MessageBox.Show("namespace=" + m_Data.GetNamespace());
         }
     }
 }

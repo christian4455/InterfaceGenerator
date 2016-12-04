@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Types
+namespace InterfaceGenerator.Types
 {
     public class Parameter
     {

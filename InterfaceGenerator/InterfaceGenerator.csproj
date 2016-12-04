@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileWriter.cs" />
+    <Compile Include="IFileWriter.cs" />
     <Compile Include="IInterfaceBuilder.cs" />
     <Compile Include="InterfaceBuilder.cs" />
+    <Compile Include="InterfaceGenerator.cs" />
+    <Compile Include="IPlugin.cs" />
     <Compile Include="IRepositoryHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

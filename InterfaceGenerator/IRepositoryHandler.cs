@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Types;
+using InterfaceGenerator.Types;
 
 namespace InterfaceGenerator
 {
     public interface IRepositoryHandler
     {
-        Types.InterfaceData HandleRepository(EA.Repository interfaceElement);
+        InterfaceData HandleRepository(EA.Repository interfaceElement);
     }
 }
