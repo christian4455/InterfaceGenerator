@@ -1,0 +1,5 @@
+D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\bin\Debug\InterfaceGenerator.dll
+D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\bin\Debug\InterfaceGenerator.pdb
+D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\bin\Debug\InterfaceGenerator.tlb
+D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\obj\Debug\InterfaceGenerator.dll
+D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\obj\Debug\InterfaceGenerator.pdb
