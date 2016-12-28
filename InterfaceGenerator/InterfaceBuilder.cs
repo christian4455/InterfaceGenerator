@@ -13,26 +13,39 @@ namespace InterfaceGenerator
         private string ELSE = "else";
         private string NONE = "";
 
-        public Product CreateProduct(List<Method> actions, string filename)
+        public Product CreateProduct(InterfaceData data, string filename)
         {
             Product product = new Product();
 
             product.SetFilename(filename);
 
-            product.Append(CreateHeader(filename));
-            product.Append(CreateBody(actions));
-            product.Append(CreateFooter(filename));
+            product.Append(CreateHeader(data.GetNamespaces(), filename));
+            product.Append(CreateBody(data.GetMethods()));
+            product.Append(CreateFooter(data.GetNamespaces(), filename));
 
             return product;
         }
 
-        private string CreateHeader(string filename)
+        private string CreateHeader(List<string> namespaces, string filename)
         {
             StringBuilder result = new StringBuilder();
 
             result.AppendLine("#ifndef " + ConvertToClassname(filename).ToUpper() +"_HPP");
             result.AppendLine("#define " + ConvertToClassname(filename).ToUpper() + "_HPP");
             result.AppendLine("");
+
+            namespaces.Reverse();
+
+            foreach (string nSpace in namespaces)
+            {
+                result.AppendLine("namespace " + nSpace + " {");
+            }
+
+            if (namespaces.Count > 0)
+            {
+                result.AppendLine("");
+            }
+
             result.AppendLine("class " + ConvertToClassname(filename));
             result.AppendLine("{");
             result.AppendLine("");
@@ -81,7 +94,7 @@ namespace InterfaceGenerator
             return result.ToString();
         }
 
-        private string CreateFooter(string filename)
+        private string CreateFooter(List<string> namespaces, string filename)
         {
             StringBuilder result = new StringBuilder();
 
@@ -98,7 +111,19 @@ namespace InterfaceGenerator
             result.AppendLine("    }");
             result.AppendLine("};");
             result.AppendLine("");
-            result.AppendLine("#endif // " + ConvertToClassname(filename).ToUpper() + "_HPP");
+
+            namespaces.Reverse();
+            foreach (string nSpace in namespaces)
+            {
+                result.AppendLine("} // namespace - " + nSpace);
+            }
+
+            if (namespaces.Count > 0)
+            {
+                result.AppendLine("");
+            }
+
+            result.AppendLine("#endif // !" + ConvertToClassname(filename).ToUpper() + "_HPP");
 
             return result.ToString();
         }

@@ -3,4 +3,3 @@ D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\bin\Debug\InterfaceGenerat
 D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\bin\Debug\InterfaceGenerator.tlb
 D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\obj\Debug\InterfaceGenerator.dll
 D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\obj\Debug\InterfaceGenerator.pdb
-D:\Projekte\dev\InterfaceGenerator\InterfaceGenerator\obj\Debug\InterfaceGenerator.csprojResolveAssemblyReference.cache

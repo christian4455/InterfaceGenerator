@@ -10,6 +10,6 @@ namespace InterfaceGenerator
 {
     public interface IInterfaceBuilder
     {
-        Product CreateProduct(List<Method> actions, string filename);
+        Product CreateProduct(InterfaceData data, string filename);
     }
 }

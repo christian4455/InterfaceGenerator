@@ -11,7 +11,7 @@ namespace InterfaceGenerator
     {
         // define menu constants
         const string menuHeader = "-&InterfaceGenerator";
-        const string menuGenerateInterface = "&Generate interface";
+        const string menuGenerateInterface = "&Generate interfaces";
 
         InterfaceBuilder m_InterfaceBuilder = new InterfaceBuilder();
         RepositoryHandler m_RepositoryHandler = new RepositoryHandler();

@@ -33,7 +33,7 @@ namespace InterfaceGenerator
 
             foreach (InterfaceData d in data)
             {
-                products.Add(m_InterfaceBuilder.CreateProduct(d.GetMethods(), d.GetInferfaceName() + ".hpp"));
+                products.Add(m_InterfaceBuilder.CreateProduct(d, d.GetInferfaceName() + ".hpp"));
             }
 
             foreach (Types.Product p in products)

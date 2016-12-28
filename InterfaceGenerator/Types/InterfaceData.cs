@@ -11,6 +11,7 @@ namespace InterfaceGenerator.Types
         private string m_InterfaceName;
         private List<Method> m_Methods = new List<Method>();
         private string m_Namespace = "";
+        private List<string> m_Namespaces = new List<string>();
 
         public InterfaceData()
         {
@@ -34,6 +35,8 @@ namespace InterfaceGenerator.Types
 
         public void AddNamespaceElement(string namespaceElement)
         {
+            m_Namespaces.Add(namespaceElement);
+
             if (m_Namespace.Length > 0)
             {
                 m_Namespace = namespaceElement + "::" + m_Namespace;
@@ -47,6 +50,11 @@ namespace InterfaceGenerator.Types
         public string GetNamespace()
         {
             return m_Namespace;
+        }
+
+        public List<string> GetNamespaces()
+        {
+            return m_Namespaces;
         }
 
         public List<Method> GetMethods()

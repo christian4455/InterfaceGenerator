@@ -8,13 +8,10 @@ using System.Windows.Forms;
 using InterfaceGenerator.Types;
 using InterfaceGenerator.Utils;
 
-using InterfaceGenerator.Utils.Logger;
-
 namespace InterfaceGenerator
 {
     public class RepositoryHandler : IRepositoryHandler
     {
-
         private Types.InterfaceData m_Data = new Types.InterfaceData();
         private EA.Repository m_InterfaceOfInterest = null;
 
@@ -29,13 +26,14 @@ namespace InterfaceGenerator
 
             m_InterfaceOfInterest = interfaceElement;
 
-            FetchNamespace(interfaceElement);
-
+          
             foreach (EA.Element e in interfaceElement.GetTreeSelectedPackage().Elements)
             {
                 if (EnumUtil.ParseEnum<ElementType>(e.Type, ElementType.Unknown) == ElementType.Interface)
                 {
                     m_Data = new Types.InterfaceData();
+
+                    FetchNamespace(interfaceElement);
 
                     m_Data.SetInterfaceName(e.Name);
 
