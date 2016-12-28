@@ -40,7 +40,7 @@ namespace InterfaceGenerator.Types
             }
             else
             {
-                m_Namespace = "::" + namespaceElement;
+                m_Namespace = namespaceElement;
             }
         }
 

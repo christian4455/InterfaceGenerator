@@ -10,6 +10,8 @@ namespace InterfaceGenerator.Types
     {
         private string m_FunctionName;
         private string m_ReturnType;
+        private List<Parameter> m_Parameter = new List<Parameter>();
+        private bool m_IsStatic = false;
 
         public Method(string functionName, string returnType)
         {
@@ -25,6 +27,26 @@ namespace InterfaceGenerator.Types
         public string GetReturnType()
         {
             return m_ReturnType;
+        }
+        
+        public void AddParameter(Parameter parameter)
+        {
+            m_Parameter.Add(parameter);
+        }
+
+        public List<Parameter> GetParameter()
+        {
+            return m_Parameter;
+        }
+
+        public void SetStatic(bool isStatic)
+        {
+            m_IsStatic = isStatic;
+        }
+
+        public bool IsStatic()
+        {
+            return m_IsStatic;
         }
     }
 }

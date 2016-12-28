@@ -19,7 +19,6 @@ namespace InterfaceGenerator
 
         public void WriteProduct(string path, Product product)
         {
-            Log.Info("");
             try
             {
                 System.IO.StreamWriter file = new System.IO.StreamWriter(path + product.GetFilename());
@@ -28,7 +27,6 @@ namespace InterfaceGenerator
             }
             catch (Exception e)
             {
-                Log.Info("Exception:" + e.Message);
             }
             finally
             {

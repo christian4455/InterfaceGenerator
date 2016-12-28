@@ -10,6 +10,6 @@ namespace InterfaceGenerator
 {
     public interface IRepositoryHandler
     {
-        InterfaceData HandleRepository(EA.Repository interfaceElement);
+        List<InterfaceData> HandleRepository(EA.Repository interfaceElement);
     }
 }

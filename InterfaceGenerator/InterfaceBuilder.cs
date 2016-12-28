@@ -38,8 +38,8 @@ namespace InterfaceGenerator
             result.AppendLine("");
             result.AppendLine("public:");
             result.AppendLine("");
-            result.AppendLine(ConvertToClassname(filename) + "() {}");
-            result.AppendLine("virtual ~"+ ConvertToClassname(filename) + "() {}");
+            result.AppendLine("    " + ConvertToClassname(filename) + "() {}");
+            result.AppendLine("    virtual ~"+ ConvertToClassname(filename) + "() {}");
             result.AppendLine("");
 
             return result.ToString();
@@ -53,15 +53,26 @@ namespace InterfaceGenerator
             {
                 if (IsLegalFunctionName(m.GetFunctionName()))
                 {
-                    // Todo [cb] This is very unhandy. Maybe set an enum for the interface?
-                    if (m.GetReturnType() != "bool")
+                    result.Append("    virtual " + m.GetReturnType() + " " + m.GetFunctionName() + "(");
+
+                    foreach (Parameter p in m.GetParameter())
                     {
-                        result.AppendLine("virtual " + m.GetReturnType() + " " + m.GetFunctionName() + "() = 0;");
+                        if (p.IsConst())
+                        {
+                            result.Append("const ");
+                        }
+
+                        result.Append(p.GetDatatype() + " ");
+
+                        result.Append(p.GetName());
+
+                        if(m.GetParameter().IndexOf(p) != m.GetParameter().Count - 1)
+                        {
+                            result.Append(", ");
+                        }
                     }
-                    else
-                    {
-                        result.AppendLine("virtual " + m.GetReturnType() + " " + m.GetFunctionName() + " = 0;");
-                    }
+
+                    result.AppendLine(") = 0;");
 
                     result.AppendLine("");
                 }
